@@ -1,57 +1,47 @@
-import  reactImg from "./assets/react-core-concepts.png";
-import componentImg from "./assets/components.png"
 
+import Header from "./components/Header/Header";
 //this is a named export
 import { CORE_CONCEPTS } from "./data";
+import TabButton from "./components/TabButton";
+import CoreConcept from "./components/CoreConcept";
+import {EXAMPLES} from "./data"
+import {useState} from 'react'
 
+//state hooks are directly 
+//called on the top level that is directly insode 
+//the component 
 
+//they cannot be called inside any helper or a loop or switch etc
 
-const reactDescriptions = ["Fundamental" , "Crucial" , "Core"]
-
-function getRandomInt(max){
-  return Math.floor(Math.random()*(max + 1))
-}
-
-function Header() {
-  const description = reactDescriptions[getRandomInt(2)]
-
-
-  return (
-    <header>
-      <img src={reactImg} alt="Stylized atom" />
-      <h1>React Essentials</h1>
-      <p>
-        {description} React concepts you will need for almost any app you are
-        going to build!
-      </p>
-    </header>
-  )
-}
-
-// function CoreConcept(props) {
-//   return (
-//     <li>
-//       <img src={props.image} alt={props.title} />
-//       <h3>{props.title}</h3>
-//       <p>{props.description}</p>
-//     </li>
-//   )
-// }
-
-//using prop destructuring
-//you have to use the same names as what you passed when you executed the componenet
-//or called the componenet
-function CoreConcept({image , title , description}) {
-  return (
-    <li>
-      <img src={image} alt={title} />
-      <h3>{title}</h3>
-      <p>{description}</p>
-    </li>
-  )
-}
-
+//is you have custoHooks then the 
+//other statae hooks can be called inside the custom ho0k
 function App() {
+
+  //every time the useState works
+  //react rerenders the 
+
+  //const [selectedTopic ,setSelectedTopic] =   useState("Please click a button");
+  const [selectedTopic ,setSelectedTopic] =   useState();
+
+  function handleClick(selectedButton) {
+    //selected button should be a striing
+    //"components" , "jsx , "props" or "state"
+    //console.log("Prev Button pressed was", selectedButton)
+    setSelectedTopic(selectedButton)
+    console.log("Button pressed is", selectedButton)
+    
+    
+    //THIS IS NOT VALID ANYMORE AS THE NEW REACT VERSION
+    //FIRST UPDATES THE STATE USING THE setStateTopic
+    //SO THE LATEST VALUE OS ALREADY PRESENT
+    //console.log("Note  that it is showing that the button pressed is the previous button")
+    //console.log("This is because the handleClick executres first after which the \n the rerendering is scheduled")
+    //console.log("Which means that the log is printed first with the previous value that is prev pressed button")
+    //console.log("after that the componenet renders again")
+  }
+
+  console.log("RERENDERING 2")
+
   return (
     <div>
       <Header></Header>
@@ -59,6 +49,7 @@ function App() {
         <section id="core-concepts">
           <h2>Core Concepts</h2>
           <ul>
+          {console.log("RERENDERING 1")}
           {/*
           
           //MANUAL way
@@ -97,7 +88,42 @@ function App() {
 
           </ul>
         </section>
-        <h2>Time to get started!</h2>
+        <section id="examples">
+            <h2>Examples</h2>
+            <menu>
+            <TabButton onClickProp = {() => {handleClick("components")}}>COMPONENT</TabButton>
+            <TabButton onClickProp = {() => {handleClick("jsx")}}>JSX</TabButton>
+            <TabButton onClickProp = {() => {handleClick("props")}}>PROPS</TabButton>
+            <TabButton onClickProp = {() => {handleClick("state")}}>STATE</TabButton>
+              {/*we could have used 
+                a diffent 
+                approach also 
+                like 
+                <TabButton buttonlabel="COMPONENT"></TabButton>
+                //and used the generic props object instead of the childrens
+              */}
+            </menu>
+            <div id="tab-content">
+
+              {(selectedTopic === undefined || selectedTopic === "" )?
+              <p>Please select a topic</p>:  
+              <>
+              <h3>{EXAMPLES[selectedTopic].title}</h3>
+              <p>{EXAMPLES[selectedTopic].description}</p>
+              <pre>
+                <code>
+                {EXAMPLES[selectedTopic].code}
+                </code>
+              </pre>
+              </>
+              }
+            </div>
+            
+            
+
+        </section>
+
+        <h2>{selectedTopic}</h2>
       </main>
     </div>
   );
