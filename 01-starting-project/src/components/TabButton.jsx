@@ -6,11 +6,11 @@ export default function TabButton(props) {
     it represents whatever is present between the component opening and closing 
     when the componenet is calle    
     */}
-
+    
     console.log("TAB BUTTON EXECUTING")
     return( 
         <li>
-        <button onClick={props.onClickProp}>{props.children}</button>
+        <button className={props.isSelected? 'active' : undefined} onClick={props.onClickProp}>{props.children}</button>
         </li>
     )
 }   

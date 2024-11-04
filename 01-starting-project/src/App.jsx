@@ -42,6 +42,20 @@ function App() {
 
   console.log("RERENDERING 2")
 
+  let tabContect = <p>Please select a topic</p>
+  if(selectedTopic){
+    tabContect = (
+      <>
+      <h3>{EXAMPLES[selectedTopic].title}</h3>
+      <p>{EXAMPLES[selectedTopic].description}</p>
+      <pre>
+        <code>
+        {EXAMPLES[selectedTopic].code}
+        </code>
+      </pre>
+      </>
+    )
+  }
   return (
     <div>
       <Header></Header>
@@ -49,6 +63,8 @@ function App() {
         <section id="core-concepts">
           <h2>Core Concepts</h2>
           <ul>
+
+
           {console.log("RERENDERING 1")}
           {/*
           
@@ -75,26 +91,45 @@ function App() {
           description ={CORE_CONCEPTS[3].description}
           image = {CORE_CONCEPTS[3].image}
           /> */}
+
+
+          {/* 
           <CoreConcept 
           title={CORE_CONCEPTS[0].title} 
           description ={CORE_CONCEPTS[0].description}
           image = {CORE_CONCEPTS[0].image}
-          />
+          /> */}
           {/* Object destructuting way */}
-
+          {/* 
           <CoreConcept {...CORE_CONCEPTS[1]}/>
           <CoreConcept {...CORE_CONCEPTS[2]}/>
           <CoreConcept {...CORE_CONCEPTS[3]}/>
+          */}
+
+
+          {
+          CORE_CONCEPTS.map((conceptItem) => {
+            return (
+              //the hkey prop is also unique to react 
+              //and must be present whenever we are uusing
+              //map orr filter methods 
+              //it must be assigned some think unique
+              <CoreConcept key={conceptItem.title} {...conceptItem}/>
+            )
+          })
+          }
 
           </ul>
         </section>
         <section id="examples">
             <h2>Examples</h2>
             <menu>
-            <TabButton onClickProp = {() => {handleClick("components")}}>COMPONENT</TabButton>
-            <TabButton onClickProp = {() => {handleClick("jsx")}}>JSX</TabButton>
-            <TabButton onClickProp = {() => {handleClick("props")}}>PROPS</TabButton>
-            <TabButton onClickProp = {() => {handleClick("state")}}>STATE</TabButton>
+            <TabButton isSelected = {selectedTopic === "components"} onClickProp = {() => {handleClick("components")}}>COMPONENT</TabButton>
+            <TabButton isSelected = {selectedTopic === "jsx"} onClickProp = {() => {handleClick("jsx")}}>JSX</TabButton>
+            <TabButton isSelected = {selectedTopic === "props"} onClickProp = {() => {handleClick("props")}}>PROPS</TabButton>
+            <TabButton isSelected = {selectedTopic === "state"} onClickProp = {() => {handleClick("state")}}>STATE</TabButton>
+            
+            
               {/*we could have used 
                 a diffent 
                 approach also 
@@ -104,19 +139,7 @@ function App() {
               */}
             </menu>
             <div id="tab-content">
-
-              {(selectedTopic === undefined || selectedTopic === "" )?
-              <p>Please select a topic</p>:  
-              <>
-              <h3>{EXAMPLES[selectedTopic].title}</h3>
-              <p>{EXAMPLES[selectedTopic].description}</p>
-              <pre>
-                <code>
-                {EXAMPLES[selectedTopic].code}
-                </code>
-              </pre>
-              </>
-              }
+                {tabContect}
             </div>
             
             
