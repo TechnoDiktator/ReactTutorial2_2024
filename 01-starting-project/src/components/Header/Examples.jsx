@@ -55,8 +55,18 @@ export default function Examples(){
             */}
             <Section id="examples" title={"examples"}>
                 
-                {/*WE CAN EVEN PASS AN ENTIRE COMPONENT AS PROP */}
-                <Tabs buttons={
+                {/*
+                WE CAN EVEN PASS AN ENTIRE COMPONENT AS PROP 
+                WE CAN EVEN PASS THE COMPONENT AS A STRING
+                (IF IT IS  A NORMAL VALID HTML ELEMENT)
+
+                OR 
+
+                EVEN ITS REFERENCE ->EG <Tabs buttonsContainer={Section} 
+                */}
+                <Tabs 
+                buttonsContainer="menu"
+                buttons={
                     <>
                         <TabButton isSelected = {selectedTopic === "components"} onClickProp = {() => {handleClick("components")}}>COMPONENT</TabButton>
                         <TabButton isSelected = {selectedTopic === "jsx"} onClickProp = {() => {handleClick("jsx")}}>JSX</TabButton>
