@@ -1,5 +1,5 @@
 import logo from '../assets/logo.png';
-import './Header.css'
+import classes from './Header.module.css'
 
 export default function Header() {
   return (
@@ -19,9 +19,11 @@ export default function Header() {
 
       but there is an advantage that you only affect a specific componenet
       */}
-      <p style={{color:"red" , 
+      {/* <p style={{color:"red" , 
         textAlign : 'right'
       }} >A community of artists and art-lovers.</p>
+     */}
+    <p className={classes.paragraph}>A community of artists and art-lovers.</p>
     </header>
   );
 }
