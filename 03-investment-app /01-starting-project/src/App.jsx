@@ -38,13 +38,15 @@ function App() {
     
   }
 
+  const inputIsValid = userInput.duration >= 1
 
 
   return (
     <>
       <Header></Header>
       <UserInput userInput={userInput} onChangeInput={handleChange} ></UserInput>
-      <Results input={userInput}></Results>
+      {!inputIsValid && <p className="center">Please enter valid input data / positive numbers</p>}
+      {inputIsValid && <Results input={userInput}></Results>}
     
     </>
 
