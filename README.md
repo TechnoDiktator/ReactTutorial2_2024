@@ -10,3 +10,6 @@ This is my first revision project
 This is my second revision project
 ![image](https://github.com/user-attachments/assets/b8e952a3-6dad-4163-8e3c-6248a5299faa)
 
+### MADE AN INTEREST RATE CALCULATOR -> COMPONENTS , USESTATE HOOK , USAGE OF MAP TO DYNAMICALLY RENDER REPEATED COMPONNET , PROPS and much more !!!
+![image](https://github.com/user-attachments/assets/a47965fa-b128-4916-b20c-0129b9df36eb)
+
