@@ -18,24 +18,33 @@ export default function AuthInputs() {
   }
 
   const emailNotValid = submitted && !enteredEmail.includes('@');
+  if (emailNotValid === true){
+    console.log("Email not valid")
+  }
   const passwordNotValid = submitted && enteredPassword.trim().length < 6;
 
   return (
     <div id="auth-inputs">
       <div className="controls">
         <p>
-          <label>Email</label>
+          <label className={`label ${emailNotValid ? "invalid":'' }`} >Email</label>
           <input
             type="email"
-            className={emailNotValid ? 'invalid' : undefined}
+            style={
+              {
+                background: emailNotValid? 'red':'#d1d5db'
+              }
+            }
+
+            //className={emailNotValid ? 'invalid' : undefined}
             onChange={(event) => handleInputChange('email', event.target.value)}
           />
         </p>
         <p>
-          <label>Password</label>
+          <label lassName={`label ${emailNotValid ? "invalid":'' }`}>Password</label>
           <input
             type="password"
-            className={passwordNotValid ? 'invalid' : undefined}
+            //className={passwordNotValid ? 'invalid' : undefined}
             onChange={(event) =>
               handleInputChange('password', event.target.value)
             }
