@@ -1,7 +1,7 @@
 import Button from "./Button";
 
 
-export default function ProjectSidebar({onStartAddProject}) {
+export default function ProjectSidebar({onStartAddProject , projects}) {
 
 
     return (
@@ -10,7 +10,18 @@ export default function ProjectSidebar({onStartAddProject}) {
             <div>
             <Button onClick = {onStartAddProject}> + Add Projects </Button>
             </div>
-            <ul></ul>
+            <ul className="mt-8">
+                {projects.map(project => {
+                    return (
+                        <li key={project.id}>
+                            <button className="w-full text-left px-3 py-1 rounded-sm my-1 text-stone-300 hover:text-stone-100 hover:bg-slate-800">
+                                {project.title}
+                            </button>
+                        </li>
+                    )
+
+                })}
+            </ul>
         </aside>
     )
 
