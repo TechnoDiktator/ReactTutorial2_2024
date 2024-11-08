@@ -1,4 +1,4 @@
-import { useRef, useState , useEffect } from 'react';
+import { useRef,  useCallback, useState , useEffect } from 'react';
 
 import Places from './components/Places.jsx';
 import { AVAILABLE_PLACES } from './data.js';
@@ -156,7 +156,28 @@ function App() {
     }
   }
 
-  function handleRemovePlace() {
+
+
+  /*
+  
+The useCallback hook in React is used to memoize (or cache)
+ a function, preventing it from being recreated on each 
+ render unless its dependencies change. T
+ his is especially helpful for optimizing performance i
+ n scenarios where the function is passed as a prop 
+ to child components,
+ 
+ or when the function is computationally expensive and 
+ shouldn't be needlessly recalculated.
+  
+  Memoization: useCallback returns a memoized version of the callback function that only changes if the values in the dependency array change.
+Dependency Array: Like useEffect, the dependency array controls when the function should
+ be recreated. If the values in this array don’t change 
+ between renders, useCallback returns the previously 
+ memoized function.
+
+  */
+  const handleRemovePlace =   useCallback( function handleRemovePlace() {
     setPickedPlaces((prevPickedPlaces) =>
       prevPickedPlaces.filter((place) => place.id !== selectedPlace.current)
     );
@@ -166,11 +187,11 @@ function App() {
 
     const storeIds = JSON.parse(localStorage.getItem("selectedPlaces")) || []
     localStorage.setItem("selectedPlaces" , JSON.stringify(storeIds.filter((id) =>id != selectedPlace.current)))
-  }
+  },[])
 
   return (
     <>
-      <Modal open ={modalIsOpen}>
+      <Modal open={modalIsOpen} onClose={handleStopRemovePlace}>
         <DeleteConfirmation
           onCancel={handleStopRemovePlace}
           onConfirm={handleRemovePlace}
