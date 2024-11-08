@@ -3,6 +3,17 @@
 Learning/Revisiting JSX React
 
 
+### Shopping App Homepage
+
+Inthis project i tried to create the basic features of a shopping app
+I used features such as :
+  Usecontext
+  Useref
+  Usereducer
+I learned about Dispatch fuction and how it cana abe used to calculate comples states 
+and help in state management instead is useState hook
+![image](https://github.com/user-attachments/assets/e27d3a95-e000-4c49-a084-777209460051)
+
 ### Jira Tasks Clone Project
 In this project I tried to create aa clone of jira tasks
 I used features such as =>   
