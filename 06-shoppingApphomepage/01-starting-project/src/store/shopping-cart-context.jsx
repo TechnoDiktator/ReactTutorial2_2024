@@ -138,15 +138,6 @@ function shoppingCartReducer(state , action) {
 
 
 
-
-
-
-
-
-
-
-
-
 //Heref we are basically building our definition for the coontext
 export default function CartContextProvider({children}){
 
