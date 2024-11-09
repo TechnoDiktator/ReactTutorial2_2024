@@ -6,7 +6,7 @@ import Question from "./Question"
 
 import quizCompleteImg from '../assets/quiz-complete.png'
 import { useCallback } from "react"
-
+import Summary from "./Summary"
 export default function Quiz() {
     
 
