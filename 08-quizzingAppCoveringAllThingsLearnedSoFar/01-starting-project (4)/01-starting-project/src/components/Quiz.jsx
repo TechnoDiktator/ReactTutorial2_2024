@@ -11,53 +11,37 @@ export default function Quiz() {
     
 
 
-    //const [activeQuestionIndex , setActiveQuestionIndex] = useState(0)
-    const [userAnswers , setUserAnswers] = useState([])    
+    const [userAnswers, setUserAnswers] = useState([]);
 
-
-    //to track the active wuestion index
-    const activeQuestionIndex = userAnswers.length
-
-
-
-    const quizIsComplete = activeQuestionIndex === QUESTIONS.length
-    
-    console.log("Active questions index",activeQuestionIndex)
-    console.log(quizIsComplete)
-    
-    //
-    const handleSelectAnswe = useCallback( function handleSelectAnswe(selectedAnswer){
-        setUserAnswers((prevUserAnswers)=>{
-            return [...prevUserAnswers , selectedAnswer]
-        })
-    },[])
-
-
-
+    const activeQuestionIndex = userAnswers.length;
+    const quizIsComplete = activeQuestionIndex === QUESTIONS.length;
+  
+    const handleSelectAnswer = useCallback(function handleSelectAnswer(
+      selectedAnswer
+    ) {
+      setUserAnswers((prevUserAnswers) => {
+        return [...prevUserAnswers, selectedAnswer];
+      });
+    },
+    []);
+  
     const handleSkipAnswer = useCallback(
-        ()=>handleSelectAnswe(null)
-    , [handleSelectAnswe])
-
-    //all questions exhausted
-    if(quizIsComplete){
-        return (
-            <div id="summary">
-                <img src={quizCompleteImg} alt="" />
-                <h2>QUIZ COMPLETED</h2>
-            </div>
-        )
+      () => handleSelectAnswer(null),
+      [handleSelectAnswer]
+    );
+  
+    if (quizIsComplete) {
+      return <Summary userAnswers={userAnswers} />
     }
-
-    return(
-        <div id="quiz">
-            <Question  
-            key={activeQuestionIndex}
-            Qindex={activeQuestionIndex}
-            onSelectAnswer={handleSelectAnswe}
-            onSkipAnswer={handleSkipAnswer}
-            >
-            </Question>
-        </div>
-    )
-
+  
+    return (
+      <div id="quiz">
+        <Question
+          key={activeQuestionIndex}
+          index={activeQuestionIndex}
+          onSelectAnswer={handleSelectAnswer}
+          onSkipAnswer={handleSkipAnswer}
+        />
+      </div>
+    );
 }
