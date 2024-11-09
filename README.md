@@ -2,22 +2,25 @@
 
 A personal log of my journey learning and revisiting essential React concepts.
 
----
+## 📌 2. Jira Tasks Clone Project
 
-## 📌 1. Shopping App Homepage
+Quizzing App . An App ehich dynamically renders new questions and also highlights if correct / incorrect answers are selected 
+and finally Gives a summary page
 
-In this project, I created a basic shopping app with core functionalities and features like:
 
-- **React Context API** for state management across components
-- **useRef** for DOM references
-- **useReducer** and **dispatch** function for managing complex states (as opposed to simple `useState` hooks)
+- **Features Used:** 
+  - `useEffect` with cleanup functions
+  - `useCallback` for optimized performance
+  - Modals and Progress Bars
 
 ### 🔑 Key Takeaways
-I learned how `dispatch` can be utilized to manage complex states and improve state handling.
+Practiced working with `localStorage`, `useEffect` cleanup functions, and explored performance optimizations with `useCallback`.
 
-![Shopping App Homepage](https://github.com/user-attachments/assets/e27d3a95-e000-4c49-a084-777209460051)
+![image](https://github.com/user-attachments/assets/5467ed3e-fb6c-4bef-b43b-a1d4404b8be1)
+![image](https://github.com/user-attachments/assets/695abe98-3d34-45b0-b9f1-d4aab984b6dc)
 
----
+
+  
 
 ## 📌 2. Jira Tasks Clone Project
 
@@ -94,6 +97,25 @@ Developed an interest rate calculator with dynamically rendered components.
 ![Interest Rate Calculator](https://github.com/user-attachments/assets/a47965fa-b128-4916-b20c-0129b9df36eb)
 
 ---
+
+---
+
+## 📌 1. Shopping App Homepage
+
+In this project, I created a basic shopping app with core functionalities and features like:
+
+- **React Context API** for state management across components
+- **useRef** for DOM references
+- **useReducer** and **dispatch** function for managing complex states (as opposed to simple `useState` hooks)
+
+### 🔑 Key Takeaways
+I learned how `dispatch` can be utilized to manage complex states and improve state handling.
+
+![Shopping App Homepage](https://github.com/user-attachments/assets/e27d3a95-e000-4c49-a084-777209460051)
+
+---
+
+
 
 ## 📌 7. Timer Game Project
 
