@@ -2,7 +2,30 @@
 
 A personal log of my journey learning and revisiting essential React concepts.
 
-## 📌 2. Jira Tasks Clone Project
+## 📌 2. Destination Picker
+
+Holiday Selector .A simple app where the user can select Places They want to visit
+The user will see Modals , Warnings and messages accordingly
+I have also used **Custom hooks** 
+
+- **Features Used:**
+  - `useEffect` with cleanup functions
+  - Custom Hooks (Built a modular custom hook and used it in multiple components)
+  - `useCallback` for optimized performance
+  - Modals and Progress Bars
+  - fetch api
+  - Also built a dummy backend server to mimic data fetch from a remote server
+  - Modals
+  - Progressbars
+
+
+### 🔑 Key Takeaways
+Practiced working with `localStorage`, Promises`,useEffect` cleanup functions, and explored performance optimizations with `useCallback`.
+
+![image](https://github.com/user-attachments/assets/1f7a581a-d70f-4bef-afd6-4df7b7939310)
+
+
+## 📌 2. Quizzing App
 
 Quizzing App . An App ehich dynamically renders new questions and also highlights if correct / incorrect answers are selected 
 and finally Gives a summary page
@@ -14,7 +37,7 @@ and finally Gives a summary page
   - Modals and Progress Bars
 
 ### 🔑 Key Takeaways
-Practiced working with `localStorage`, `useEffect` cleanup functions, and explored performance optimizations with `useCallback`.
+Practiced working with `localStorage`, Promises , `useEffect` cleanup functions, and explored performance optimizations with `useCallback`.
 
 ![image](https://github.com/user-attachments/assets/5467ed3e-fb6c-4bef-b43b-a1d4404b8be1)
 ![image](https://github.com/user-attachments/assets/695abe98-3d34-45b0-b9f1-d4aab984b6dc)
