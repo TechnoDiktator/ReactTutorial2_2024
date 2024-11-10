@@ -1,7 +1,8 @@
 import Places from './Places.jsx';
 import { useState , useEffect } from 'react';
 import Error from './Error.jsx';
-
+import { sortPlacesByDistance } from '../../../../07-useeffectAndothereffects/01-starting-project (3)/01-starting-project/src/loc';
+import { fetchAvailablePlaces } from '../http.js';
 
 
 //how to use the async await IN REACT
@@ -12,6 +13,10 @@ export default function AvailablePlaces({ onSelectPlace }) {
   const [availablePlaces ,  setAvailablePlaces] =  useState([])
   const [isFetching , setIsFetching] = useState(true)
   const [error , setError] = useState(null);
+  
+  
+  
+  
   //if we did not use useeffect we would get 
   //an infinite loop!!!!!
   useEffect( ()=>{
@@ -22,21 +27,27 @@ export default function AvailablePlaces({ onSelectPlace }) {
       setIsFetching(true)
       
       try{
-        const response = await fetch('http://localhost:3000/places');
-        if(!response.ok){
-          throw new Error("Failed to fecth data")
-        }
-        const resData =  await response.json()
-        setAvailablePlaces(resData.places)
-        if (resData){
-          setIsFetching(false)
-        }
 
+        const places = await fetchAvailablePlaces()
+        
+        //sorting the places according to my geolocation
+        navigator.geolocation.getCurrentPosition((position) => {
+        const sortedPlaces = sortPlacesByDistance(
+          places , 
+          position.coords.latitude, 
+          position.coords.longitude
+        )
+        setAvailablePlaces(sortedPlaces)
+        setIsFetching(false)
+        })
+      
       }catch (error){
         //...
-        setError(error)
+        setError({
+          message:error.message || "Counld not fetch data ..."
+        })
+        setIsFetching(false)
       }
-      setIsFetching(false)
     }
 
     fetchPlaces()
