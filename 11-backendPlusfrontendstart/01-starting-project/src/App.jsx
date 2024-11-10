@@ -1,19 +1,42 @@
-import { useRef, useState, useCallback } from 'react';
+import { useRef,useEffect , useState, useCallback } from 'react';
 
 import Places from './components/Places.jsx';
 import Modal from './components/Modal.jsx';
 import DeleteConfirmation from './components/DeleteConfirmation.jsx';
 import logoImg from './assets/logo.png';
 import AvailablePlaces from './components/AvailablePlaces.jsx';
-import { updateUserPlaces } from './http.js';
+import { fetchUserPlaces, updateUserPlaces } from './http.js';
 import Error from './components/Error.jsx';
 function App() {
   const selectedPlace = useRef();
 
+
+  const [isFetching , setIsFetching] = useState(false)
+  const [error , setError] = useState(null);
+  
   const [userPlaces, setUserPlaces] = useState([]);
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [errorUpdatingPlaces , setErrorUpdatingPlaces] = useState()
+
+  
+  useEffect(() => {
+    
+    async function fetchPlaces(){
+      setIsFetching(true)
+      
+      try{
+      const places = await fetchUserPlaces()
+      setUserPlaces(places)
+      }catch (error){
+        setError(error.message || "Failsed to fetch use places")
+      }
+      setIsFetching(false)
+    }
+    fetchPlaces()
+  } , [])
+  
+
 
   function handleStartRemovePlace(place) {
     setModalIsOpen(true);
@@ -23,6 +46,10 @@ function App() {
   function handleStopRemovePlace() {
     setModalIsOpen(false);
   }
+
+
+
+
 
   async function handleSelectPlace(selectedPlace) {
     //await updateUserPlaces([selectedPlace , ...userPlaces])
@@ -99,12 +126,15 @@ function App() {
         </p>
       </header>
       <main>
-        <Places
+        {error && <Error title="An error occured" message = {error.message}></Error> }
+        {!error && <Places
+        isLoading={isFetching}
+        loadingText="Fetching your places"
           title="I'd like to visit ..."
           fallbackText="Select the places you would like to visit below."
           places={userPlaces}
           onSelectPlace={handleStartRemovePlace}
-        />
+        />}
 
         <AvailablePlaces onSelectPlace={handleSelectPlace} />
       </main>
