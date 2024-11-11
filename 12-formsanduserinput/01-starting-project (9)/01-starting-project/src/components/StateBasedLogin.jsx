@@ -1,33 +1,47 @@
-import { useState , useRef } from "react";
+import { useState } from "react";
+import Input from "./Input";
 
-export default function Login() {
-
-
-  const [emailIsInvalid , setEmailIsInvalid] = useState(false)
-  const email = useRef()
-  const password = useRef()
+export default function StateBasedLogin() {
 
 
+  // const [enterEmail , setEnteredEmail] =useState('')
+  // const [enteredPassword , setEnteredPassword] =useState('')
 
+  // function handleEmailChange(event) {
+  //   setEnteredEmail(event.target.value)
+  // }
+
+  // function handlePasswordChange(event){
+  //   setEnteredPassword(event.target.value)
+  // }  
+
+  //===========================================================
+  const [enteredValues , setEnteredValues] = useState({
+    email:'',
+    password:''
+  })
+
+  //VALIDATING FLAGS
+  const emailIdInvalid = enteredValues.email !=='' &&
+                         !enteredValues.email.includes('@')
+
+
+
+  function handleInputChange(identifier , value){
+    setEnteredValues(prevValues => {
+      return {
+        ...prevValues,
+        [identifier]:value
+      }
+
+    })
+  }
 
   function handleSubmit(event){
     console.log("pressed")
     //this will preventthe from from refreshing
     event.preventDefault()
     console.log(enteredValues)
-
-    const enteredEmail = email.current.value
-    const enteredPassword = password.current.value
-
-    console.log(enteredEmail , enteredPassword)
-    const emailIsValid = enteredEmail.includes('@')
-
-    if(!emailIsValid){
-      setEmailIsInvalid(true)
-      return
-    }
-    setEmailIsInvalid(false)
-  
   }
   //==============================================================
 
@@ -52,25 +66,28 @@ export default function Login() {
       <h2>Login</h2>
 
       <div className="control-row">
+
+
         <div className="control no-margin">
           <label htmlFor="email">Email</label>
           <input 
+            onChange={(event) => handleInputChange('email' , event.target.value) } 
             id="email" 
             type="email" 
             name="email" 
-            ref={email}
+            value={enteredValues.email}
           />
-          <div className="control-error">{emailIsInvalid && <p>Please enter a valid email address</p>}</div>
+          <div className="control-error">{emailIdInvalid && <p>please enter a valid email address</p>}</div>
+          
         </div>
 
         <div className="control no-margin">
           <label htmlFor="password">Password</label>
-          <input 
-            id="password" 
-            type="password" 
-            name="password"
-            ref={password} 
-            
+          <input id="password" 
+          type="password" 
+          name="password" 
+          onChange={(event) => handleInputChange('password' , event.target.value) }
+          value={enteredValues.password}
           />
         </div>
       </div>
