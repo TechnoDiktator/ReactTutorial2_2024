@@ -60,6 +60,8 @@ export default function CustomInputComponentLoseFucusState() {
       }
 
     })
+
+    
     //as soo as user starts typing again we remove the error 
     //the we wait for the user to lose focus
     setDidEdit((prevEdit) => ({
