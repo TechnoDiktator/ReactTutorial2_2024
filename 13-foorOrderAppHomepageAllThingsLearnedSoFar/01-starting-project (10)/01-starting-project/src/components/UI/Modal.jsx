@@ -5,7 +5,7 @@ import { createPortal } from 'react-dom';
 
 
 
-export default function Modal({children , open , className = ""}) {
+export default function Modal({children , open , className = "" , onClose}) {
     
     /*
     In this React code, the cleanup function inside useEffect will run in the following scenarios:
@@ -36,7 +36,7 @@ export default function Modal({children , open , className = ""}) {
     }, [open])
 
     return  (createPortal(
-    <dialog className={`modal ${className}`} ref = {dialog}>{children}
+    <dialog className={`modal ${className}`} ref = {dialog}  onClose={onClose}>{children}
     </dialog> ,
     document.getElementById('modal')))
 }

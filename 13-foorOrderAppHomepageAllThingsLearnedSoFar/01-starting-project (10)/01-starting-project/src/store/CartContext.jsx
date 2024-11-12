@@ -53,7 +53,7 @@ function cartReducer(state , action) {
         })
 
 
-        const existingCartItem = stateitems[existingCartItemIndex]
+        const existingCartItem = state.items[existingCartItemIndex]
         const updatedItems = [...state.items]
         if(existingCartItem.quantity === 1){
             //remove and delete

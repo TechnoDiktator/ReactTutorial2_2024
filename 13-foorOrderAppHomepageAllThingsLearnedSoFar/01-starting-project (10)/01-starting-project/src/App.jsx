@@ -1,3 +1,4 @@
+import Checkout from "./components/Checkout";
 import Header from "./components/Header";
 import Meals from "./components/Meals";
 import Cart from "./components/UI/Cart";
@@ -17,6 +18,7 @@ function App() {
           <Header></Header>
           <Meals></Meals>
           <Cart></Cart>
+          <Checkout></Checkout>
         </CartContextProvider>
       </UserProgressContextProvider>
     </>
