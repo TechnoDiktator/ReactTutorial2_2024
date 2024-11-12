@@ -27,6 +27,8 @@ export default function Modal({children , open , className = ""}) {
             modal.showModal()
         }
 
+        //the clean up basically cleans up the previous instance of teh components execution before
+        //executing the new instance
         return () => {
             return modal.close()
         }
