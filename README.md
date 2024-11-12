@@ -1,6 +1,30 @@
 # React Projects & Learning Notes - 2024
 
 A personal log of my journey learning and revisiting essential React concepts.
+## 📌 2. FoodOrder App Page
+
+Holiday Selector .A simple app where the user can select Meals / Items They want to eat
+Use of fetch API to get and post users data
+Cart feature to see the items in the cart
+Submit Order / Place Order to place the order
+I have also used **Custom hooks** 
+
+- **Features Used:**
+  - `useEffect` with cleanup functions
+  - Custom Hooks (Built a modular custom hook and used it in multiple components)
+  - `useCallback` for optimized performance
+  - Modals and Progress Bars
+  - fetch api
+  - Also built a dummy backend server to mimic data fetch from a remote server
+  - Modals
+  - Progressbars
+
+![image](https://github.com/user-attachments/assets/88c49d21-af1c-404e-accd-1f43be46c1ec)
+![image](https://github.com/user-attachments/assets/29cc2a1c-44ee-4e38-b072-ba5cbb010806)
+![image](https://github.com/user-attachments/assets/fb763d0a-49a3-479e-b642-93dbef9d136d)
+
+
+
 
 ## 📌 2. Destination Picker
 
