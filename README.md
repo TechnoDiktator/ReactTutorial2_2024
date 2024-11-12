@@ -180,3 +180,6 @@ This project strengthened my understanding of `useRef` and `forwardRef` for DOM 
 --- 
 
 This journey has provided me with a solid grasp of React's capabilities, state management techniques, and various hooks to manage complex functionality in modern web applications. Looking forward to deepening my React expertise with more advanced projects!
+
+## 📌 7. REDUX FLOWCHART
+![image](https://github.com/user-attachments/assets/a5dc9e11-4488-432b-90ca-4520bd0cad71)
