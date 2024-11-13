@@ -183,3 +183,5 @@ This journey has provided me with a solid grasp of React's capabilities, state m
 
 ## 📌 7. REDUX FLOWCHART
 ![image](https://github.com/user-attachments/assets/a5dc9e11-4488-432b-90ca-4520bd0cad71)
+##PRACTICING REDUX AND REDUX TOOLKIT
+![image](https://github.com/user-attachments/assets/1e625349-32ca-419d-8c36-3cc7acdac05d)
