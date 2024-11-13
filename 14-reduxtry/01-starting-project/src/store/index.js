@@ -2,69 +2,13 @@ import {createStore} from 'redux'
 
 import { configureStore } from '@reduxjs/toolkit'
 
+import counterSlice from './counter'
+import authSlice from './auth'
+
 
 
 //REDUX TOOLTIK
-import {createSlice} from '@reduxjs/toolkit'
 
-
-
-const initialCounterState = {counter:0 , showCounter : true}
-
-
-//EVERY REDUX TOOLKIT SLICE NEEDS A NAME
-const counterSlice = createSlice({
-    name:'counter',
-    initialState: initialCounterState , //our ostate object
-    reducers:{ //creating the reducer object
-        increment(state){
-            //it may look like 
-            //that we are editing the existing 
-            //state 
-            //but redux 
-            //toolkit actualy is cloning 
-            //the state object (deep copy)
-            state.counter++
-        },
-        decrement(state){
-            state.counter--
-        },
-        /*
-        it might look lie tha we have not passed an
-        action object in the abocve reducer functions 
-        but the redux toolit is implicitely doing that 
-        */
-        increase(state , action){        //the redux toolkit implicit action 
-                                        //object contains a predefined key 
-                                         // that is the payload key where we can provide the action payload
-            state.counter = state.counter + action.payload
-        },
-        toggleCounter(state){
-            state.showCounter = !state.showCounter
-        }
-    },
-})
-
-const initialAuthState = {
-    isAuthenticated:false
-}
-
-//ANOTHER SLICE
-const authSlice = createSlice({
-    name:"authentiacation",
-    initialState:initialAuthState,
-    reducers:{
-        //WE ARE NOT MUTATINg THE CURRENT STATE
-        //TOOLKIT TAKES CARE OF CLONING THE STATE 
-        //AND THEN MODIFYING IT
-        login(state){
-            state.isAuthenticated = true
-        },
-        logout(state){
-            state.isAuthenticated = false
-        }
-    }
-})
 
 
 //==================================================
