@@ -24,6 +24,28 @@ I have also used **Custom hooks**
 ![image](https://github.com/user-attachments/assets/fb763d0a-49a3-479e-b642-93dbef9d136d)
 
 
+## 📌 2. Redux Toolkit Revisit
+
+Redux Toolkit Practice 
+In this project i used the redux toolkit and redux to do state management instead of in component 
+or context state 
+Redux allows us to pass state accross all our components at an application level 
+
+I have also used **Custom Action generators , Custom Hooks ,Firebase** 
+
+- **Features Used:**
+- FireBase
+- Fetch api
+  - `useEffect` with cleanup functions and also used custom action generators inside useEffect
+  - passed those action generators to the dispatch method returned by useDispatch to run SideEffects (fetch api)
+  - Custom Hooks (Built a modular custom hook and used it in multiple components)
+  - `useCallback` for optimized performance
+  - Modals and Progress Bars
+  - fetch api
+![image](https://github.com/user-attachments/assets/163b4ec4-d48a-424c-abbb-ca5c8f2b91be)
+## FIREBASE KEY VALUE STOORE
+![image](https://github.com/user-attachments/assets/eeb0dac8-bb7c-4aba-9236-e6ca9e0a5bd4)
+![image](https://github.com/user-attachments/assets/5b125c94-8e2e-4c25-b2d2-9188e3e60bb3)
 
 
 ## 📌 2. Destination Picker
