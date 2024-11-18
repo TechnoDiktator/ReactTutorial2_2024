@@ -7,16 +7,6 @@ import EventsList from '../components/EventsList';
 
 import { useLoaderData  } from 'react-router-dom';
 
-
-
-
-
-
-
-
-
-
-
 function EventsPage() {
     //getting loaders answer
     const events = useLoaderData()

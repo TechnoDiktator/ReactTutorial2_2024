@@ -26,17 +26,22 @@ import {createBrowserRouter ,  RouterProvider } from 'react-router-dom';
 import HomePage from './pages/Home';
 import EventsPage from './pages/Events';
 import EventDetailPage , {loader as eventDetailLoader , action as deleteEventActiom} from './pages/EventDetail';
-import NewEventPage , {action as newEvent} from './pages/NewEvent';
+import NewEventPage from './pages/NewEvent';
+import {action as ManipulateEventAction} from './components/EventForm'
+
+
 import EditEventPage from './pages/EditEvent';
 import RootLayout from './pages/Root';
 import EventsRootLayout from './pages/EventsRoot';
 
 import {loader as eventsLoader} from './pages/Events' 
 import ErrorPage from './pages/ErrorPage';
+import NewsletterPage, { action as newsletterAction } from './pages/Newsletter';
 
 //so we are creating routes
 const router = createBrowserRouter([
   //we are going to use relative paths
+  
   {path:'/', 
     element:<RootLayout></RootLayout>  , 
     errorElement:<ErrorPage></ErrorPage>,
@@ -92,6 +97,7 @@ const router = createBrowserRouter([
               //gives us the way to pass loader
               //data to the child route
               path:"edit" , 
+              action:ManipulateEventAction,
               element: <EditEventPage></EditEventPage>
             }
 
@@ -99,16 +105,29 @@ const router = createBrowserRouter([
 
           {
             path:"new" , 
-            action:newEvent,
+            action:ManipulateEventAction,
             element :<NewEventPage></NewEventPage> 
           } , 
 
         ]
       },
-
+      {
+        path: 'newsletter',
+        element: <NewsletterPage />,
+        action: newsletterAction,
+      },
     ]
   },
-])
+]
+,
+{
+  future: {
+    v7_startTransition: true, // Opt-in to state updates using React.startTransition
+    v7_relativeSplatPath: true, // Opt-in to new splat route resolution
+  },
+}
+
+)
 
 function App() {
   return <RouterProvider router={router}></RouterProvider>
