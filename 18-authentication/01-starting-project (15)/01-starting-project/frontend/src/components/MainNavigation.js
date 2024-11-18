@@ -1,9 +1,14 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, Form, useRouteError, useRouteLoaderData } from 'react-router-dom';
 
 import classes from './MainNavigation.module.css';
 import NewsletterSignup from './NewsletterSignup';
 
 function MainNavigation() {
+
+  const token = useRouteLoaderData('root')
+
+
+
   return (
     <header className={classes.header}>
       <nav>
@@ -39,6 +44,9 @@ function MainNavigation() {
               Newsletter
             </NavLink>
           </li>
+          
+          {/* i sthere is no aut tken then we will render the authentication  */}
+          {!token && (
           <li>
             <NavLink
               to="/auth?mode=login"
@@ -49,6 +57,17 @@ function MainNavigation() {
               Authenticate
             </NavLink>
           </li>
+          )}
+
+          {/* is a user is logged in we show hime the logout button  */}
+          {token && (
+          <li>
+            {/* clocking this button will execute the logout action */}
+            <Form action='/logout' method='POST'>
+              <button className={classes.utton}>Logout</button>
+            </Form>
+          </li>
+          )}
         </ul>
       </nav>
       <NewsletterSignup />

@@ -20,3 +20,18 @@
 .list a.active {
   color: var(--color-primary-800);
 }
+
+
+.utton{
+  color: white;
+  font-weight: 400;
+  font-size: small;
+  background-color: black;
+  padding: 0.2rem;
+  border-radius: 1cm;
+
+  
+}
+.utton:hover{
+  background-color: gray;
+}

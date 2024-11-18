@@ -9,6 +9,7 @@ import {
 
 import EventItem from '../components/EventItem';
 import EventsList from '../components/EventsList';
+import { getAuthToken } from '../util/auth';
 
 function EventDetailPage() {
   const { event, events } = useRouteLoaderData('event-detail');
@@ -71,15 +72,29 @@ export async function loader({ request, params }) {
   const id = params.eventId;
 
   return defer({
+    //if you deleberately add await to a result then that 
+    //result will be deliberately loaded by the loader before the component is rendered
+    //that is navigation is done
     event: await loadEvent(id),
+
+    //if you dont add await you eill be routed to the new page that the route is mapped to 
+    //directly ...and what ever is present on the page will be rendered
+    //the page will be subsequently updated when the result of 
+    //this function is fetched
     events: loadEvents(),
   });
 }
 
 export async function action({ params, request }) {
   const eventId = params.eventId;
+  
+  const token  = getAuthToken()
+  
   const response = await fetch('http://localhost:8080/events/' + eventId, {
     method: request.method,
+    headers:{
+      'Authorization':"Bearer " + token
+    }
   });
 
   if (!response.ok) {
