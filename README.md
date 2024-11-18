@@ -18,15 +18,20 @@ An event management website from=ntend
   - redux router with use od dynamic routes to add , create , edit , delete events
   - react router form for usage of actions and loaders
   - react router dom
+  - Authentication And Authorization Dummy backend that generates Auth Token
   - loaders and actions (useLoaderData and useActiondata)
   - dummy backend
   - Custom Hooks (Built a modular custom hook and used it in multiple components)
   - fetch api
   - useFetcher hook to prevent automatic navigation on actions and loaders
-  - 
+  - Use of LAZY LOADING and DEFERRED component rendering to mimic Hitting multiple apis with diffent Response times
   - Also built a dummy backend server to mimic data fetch from a remote server
 
-![image](https://github.com/user-attachments/assets/fecbe124-f430-4ed3-887e-51fa93c7a704)
+
+![image](https://github.com/user-attachments/assets/46bf4288-0a5b-4de1-92b9-19abbd135bdd)
+![image](https://github.com/user-attachments/assets/6572fad6-2723-4690-8f8e-a2840f888ad6)
+![image](https://github.com/user-attachments/assets/5c1fbc09-1bf9-4498-b944-f593e225161f)
+
 
 
 
