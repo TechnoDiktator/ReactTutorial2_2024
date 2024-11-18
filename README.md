@@ -1,6 +1,35 @@
 # React Projects & Learning Notes - 2024
 
+
+
+
+
 A personal log of my journey learning and revisiting essential React concepts.
+
+
+A personal log of my journey learning and revisiting essential React concepts.
+## 📌 2. Event Management Multipage SPA
+An event management website from=ntend
+
+
+- **Features Used:**
+-   
+  - `useNavigation
+  - redux router with use od dynamic routes to add , create , edit , delete events
+  - react router form for usage of actions and loaders
+  - react router dom
+  - loaders and actions (useLoaderData and useActiondata)
+  - dummy backend
+  - Custom Hooks (Built a modular custom hook and used it in multiple components)
+  - fetch api
+  - useFetcher hook to prevent automatic navigation on actions and loaders
+  - 
+  - Also built a dummy backend server to mimic data fetch from a remote server
+
+![image](https://github.com/user-attachments/assets/fecbe124-f430-4ed3-887e-51fa93c7a704)
+
+
+
 ## 📌 2. FoodOrder App Page
 
 Holiday Selector .A simple app where the user can select Meals / Items They want to eat
