@@ -53,7 +53,13 @@ export async function action({ request }) {
   const resData = await response.json()
   const token  = resData.token
   localStorage.setItem("token" , token)
-  
+
+  const expiration  =  new Date()
+
+  //1hr in the future
+  expiration.setHours(expiration.getHours() + 1)
+
+  localStorage.setItem("expiration" , expiration.toISOString())
 
   // Redirect after successful authentication
   return redirect('/');
